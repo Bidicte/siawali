@@ -63,7 +63,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <p class="mini-text">Copyright © .Siawali by MVAlexa</p>
+                        <p class="mini-text"> &copy; <?php echo date("Y");?> - Siawali by MVAlexa</p>
                     </div>
                 </div>
             </div>

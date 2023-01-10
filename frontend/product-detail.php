@@ -86,7 +86,7 @@ $data = $selectProduct->fetch();
                                     </div>
                                     <div class="row">
                                         <div class="item">
-                                            <h1><?= $data['product_description']?></h1>
+                                            <h1><?= $data['product_title']?></h1>
                                             <div class="content">
                                                 <div class="price">
                                                     <span class="current"><?= $data['product_price']?>.000Fcfa</span>
