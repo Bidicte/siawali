@@ -6,6 +6,6 @@ $id = $_GET['product_id'];
          
 $updateUsers = $bdd->prepare('UPDATE product SET active = 0 WHERE product_id=?');        
 $updateUsers->execute(array($id));
-header('Location:../list_product.php');
+header('Location:../delete_product.php');
         
 ?>

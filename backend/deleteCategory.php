@@ -31,7 +31,7 @@ include('includes/navbarSearch.php');
                     <td><?php echo $data['day'];?></td>
                     <td><?php echo $data['hour'];?></td>
                     <td>
-                        <a onclick="return confirm('Are you sure you want to delete this user?')" href="articles/delete_category.php?category_id=<?= $data['category_id'];?>" class="btn btn-danger">Supprimer</a>
+                        <a onclick="return confirm('Voulez-vous supprimer cette catégorie?')" href="articles/delete_category.php?category_id=<?= $data['category_id'];?>" class="btn btn-danger">Supprimer</a>
                     </td>
                 </tr>
                 <?php endforeach;?>

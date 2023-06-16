@@ -19,24 +19,11 @@
                                         ?>
                                         <li class="has-child beauty">
                                             
-                                            <a href="#">
+                                            <a href="product-category.php?category_id=<?= $category['category_id'];?>">
                                                 <?= $category['category_name']?>
-                                                <div class="icon-small"><i class="ri-arrow-right-s-line"></i></div>
                                             </a>
-                                            <ul>
-                                                <?php
-                                                    $id = $category['category_id'];
-                                                    $selectSubCategory = $bdd->prepare("SELECT * FROM subcategory WHERE category_id =?");
-                                                    $selectSubCategory->execute(array($id));
-                                                    while ($subcategory = $selectSubCategory->fetch()){
-                                                ?>
-                                                <li><a href="#"><?= $subcategory['subcategory_name'] ?></a></li>
-                                                <?php  } ?>
-                                                
-                                            </ul>
                                         </li>
                                         <?php endwhile ?>
-
                                     </ul>
                                 </div>
                             </div>

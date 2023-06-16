@@ -17,7 +17,7 @@ if(isset($_POST['validate']))
         {   
             if(filter_var($email, FILTER_VALIDATE_EMAIL))
             {
-                if($password == $passwordHash)
+                if($password === $passwordHash)
                 {
                     $_SESSION['auth'] = true;
                     $_SESSION['user_id'] = $data['user_id']; 
@@ -32,24 +32,3 @@ if(isset($_POST['validate']))
     }else{$_SESSION['message']="Veuillez remplir tous les champs";}
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>

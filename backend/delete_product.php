@@ -42,7 +42,7 @@ include('includes/navbarSearch.php');
                     <td><?= $data['product_size'];?></td>
                    
                     <td>
-                        <a onclick="return confirm('Are you sure you want to delete this category?')" href="articles/delete_product.php?product_id=<?= $data['product_id'];?>" name="delete" class="btn btn-danger mb-3">DELETE</a>
+                        <a onclick="return confirm('Voulez-vous vraiment supprimer l\'article?')" href="articles/delete_product.php?product_id=<?= $data['product_id'];?>" name="delete" class="btn btn-danger mb-3">DELETE</a>
                     </td>
                 </tr>
                 <?php endforeach;?>

@@ -1,5 +1,6 @@
 <?php
-include("actions/database.php");
+
+include("slider/edit_slider.php");
 include('includes/header.php');
 include('includes/navbar.php');
 include('includes/navbarSearch.php');
@@ -16,7 +17,7 @@ $data = $req->fetch();
 <div class="row justify-content-center">
 
     <div class="col-xl-12 col-lg-12 col-md-9">
-        <h3 class="">Edit Product</h3>
+        <h3 class="">Edit Slider</h3>
 
         <div class="card o-hidden border-0 shadow my-5">
             <div class="card-body p-0">

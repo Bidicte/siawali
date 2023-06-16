@@ -2,10 +2,11 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                        <span>&copy; <?php echo date("Y");?> Siawali by MVAlexa</span>
                     </div>
                 </div>
-            </footer>
+            </footer> 
+            <!--  -->
             <!-- End of Footer -->
 
         </div>

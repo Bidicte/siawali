@@ -105,6 +105,15 @@ h1 {
     font-weight: var(--fw6);
 }
 
+select {
+    font-size: 0.9rem;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.basket-bottom {
+    margin-top: 100%;
+}
 
 /*-------------------------------*\
 *REUSABLE SELECTION
@@ -201,9 +210,28 @@ h1 {
     transition: var(--trans-background-color);
 }
 
+.thirty-button {
+    font-size: var(--font-small);
+    padding: 1em 5.6em;
+    height: auto;
+    width: fit-content;
+    transition: var(--trans-background-color);
+    margin-top: 300px;
+}
+
+.thirty-button {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.thirty-button:hover {
+    background-color: var(--dark-color);
+}
+
 .primary-button {
     background-color: var(--primary-color);
     color: var(--white-color);
+    border: none;
 }
 
 .primary-button:hover {
@@ -213,6 +241,7 @@ h1 {
 .secondary-button {
     background-color: var(--secondary-dark-color);
     color: var(--white-color);
+    border: none;
 }
 
 .secondary-button:hover {
@@ -227,6 +256,7 @@ h1 {
 .light-button:hover {
     background-color: var(--secondary-dark-color);
     color: var(--white-color);
+    border: none;
 }
 
 .view-all {
@@ -1820,6 +1850,10 @@ input[type="range"]::-webkit-slider-thumb {
     margin-bottom: 3em;
 }
 
+.echap {
+    margin-left: 80% !important;
+}
+
 .cat-description p {
     font-weight: var(--fw3);
     font-size: 0.9em;
@@ -2173,6 +2207,10 @@ input[type="range"]::-webkit-slider-thumb {
 .checkout {
     margin: 5em 0;
 }
+
+/* .checkout1 {
+    margin: 0.1em;
+} */
 
 .checkout .left {
     padding: 4em;
@@ -2608,21 +2646,6 @@ input[type="range"]::-webkit-slider-thumb {
         display: block;
     }
 
-    /* .dpt-menu .beauty ul {
-        background-image: url("../images/products/dress19.jpg");
-    }
-
-    .dpt-menu .electric ul {
-        background-image: url("../images/products/bag2.jpg");
-    }
-
-    .dpt-menu .fashion ul {
-        background-image: url("../images/products/bag13.jpg");
-    }
-
-    .dpt-menu .homekit .mega {
-        background-image: url("../images/products/bag1.jpg");
-    } */
 
     .dpt-menu .has-child> :where(ul, .mega)::before {
         content: "";
