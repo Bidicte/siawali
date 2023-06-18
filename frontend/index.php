@@ -114,32 +114,44 @@ include("inclusion/header.php");
                     <div class="wrapper">
                         <div class="column">
                             <div class="banner flexwrap">
-                                <div class="row">
-                                    <div class="item">
-                                        <div class="thumbnail object-cover">
-                                            <img src="images/products/set1.jpg" alt="">
+                                <?php
+                                $getInfosOfThisUser = $bdd->query('SELECT * FROM product WHERE active = 1 and product_id = 8');
+                                while ($data = $getInfosOfThisUser->fetch()) :
+                                ?>
+                                    <div class="row">
+                                        <div class="item">
+                                            <div class="thumbnail object-cover">
+                                                <img src="<?= "../backend/imagesProducts/" . $data['name_url']; ?>" alt="">
+
+                                            </div>
+                                            <div class="text-content flexcol">
+                                                <h4>Déstockage</h4>
+                                                <h3><span>Jusqu'à</span><br>-70%</h3>
+                                                <a href="#" class="primary-button">Shoppez maintenant</a>
+                                            </div>
+                                            <a href="#" class="over-link"></a>
                                         </div>
-                                        <div class="text-content flexcol">
-                                            <h4>Déstockage</h4>
-                                            <h3><span>Jusqu'à</span><br>-70%</h3>
-                                            <a href="#" class="primary-button">Shoppez maintenant</a>
-                                        </div>
-                                        <a href="#" class="over-link"></a>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="item get-gray">
-                                        <div class="thumbnail object-cover">
-                                            <img src="images/products/set3.jpg" alt="" width="300" height="200">
+                                <?php endwhile; ?>
+                                <?php
+                                $getInfosOfThisUser = $bdd->query('SELECT * FROM product WHERE active = 1 and product_id = 3');
+                                while ($data = $getInfosOfThisUser->fetch()) :
+                                ?>
+                                    <div class="row">
+                                        <div class="item get-gray">
+                                            <div class="thumbnail object-cover">
+                                                <img src="<?= "../backend/imagesProducts/" . $data['name_url']; ?>" alt="">
+                                            </div>
+                                            <div class="text-content flexcol">
+                                                <h4>A partir de 5.000 XAF</h4>
+                                                <h3><span>Zone des</span><br>Promos</h3>
+                                                <a href="#" class="primary-button">Voir plus</a>
+                                            </div>
+                                            <a href="#" class="over-link"></a>
                                         </div>
-                                        <div class="text-content flexcol">
-                                            <h4>A partir de 5.000 XAF</h4>
-                                            <h3><span>Zone des</span><br>Promos</h3>
-                                            <a href="#" class="primary-button">Voir plus</a>
-                                        </div>
-                                        <a href="#" class="over-link"></a>
                                     </div>
-                                </div>
+                                <?php endwhile; ?>
+
                             </div>
 
                         </div>

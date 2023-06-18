@@ -105,7 +105,7 @@ include("inclusion/header.php");
                                                     <th>Total</th>
                                                     <td class="cart-total-price">
                                                         <?php
-                                                        $selectProduct = $bdd->query("SELECT * FROM cart2 WHERE ip_address='$ip_address'");
+                                                        $selectProduct = $bdd->query("SELECT * FROM cart WHERE ip_address='$ip_address'");
                                                         $total = 0;
                                                         while ($data2 = $selectProduct->fetch()) {
                                                             $subtotal =  (int)$data2['product_quantity'] * (int)$data2['product_price'];

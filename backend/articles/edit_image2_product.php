@@ -13,7 +13,7 @@ if(isset($_POST['updateImage']))
     if(isset($_FILES['name_url2']))
     {
         
-        $new_image = htmlspecialchars($_FILES['name_url2']);
+        $new_image = $_FILES['name_url2'];
 
         $img_name = $_FILES['name_url2']['name'];
 	    $tmp_name = $_FILES['name_url2']['tmp_name'];
@@ -36,9 +36,3 @@ if(isset($_POST['updateImage']))
     }
     
 }
-
-
-
-
-
-?>

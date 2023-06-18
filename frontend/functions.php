@@ -19,4 +19,3 @@ function getRealUserIp(){
 //         $selectItem = $bdd->query("DELETE * FROM cart2 WHERE ip_address='$ip_address' and product_id='$id' "); 
 //     }
 // }
-?>

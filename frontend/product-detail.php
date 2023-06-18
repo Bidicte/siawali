@@ -12,7 +12,7 @@ if (isset($_POST["add_order"]) && !empty($_POST["product_qty"]) && !empty($_POST
     $price = $data['product_price'];
     $ip_address = $_SERVER['REMOTE_ADDR'];
 
-    $insertOrder = $bdd->prepare("INSERT INTO cart2(product_id, product_quantity, product_size, product_price, ip_address, cart_date) VALUES(?,?,?,?,?,NOW())");
+    $insertOrder = $bdd->prepare("INSERT INTO cart(product_id, product_quantity, product_size, product_price, ip_address, cart_date) VALUES(?,?,?,?,?,NOW())");
     $insertOrder->execute(array($id, $qty, $size, $price, $ip_address));
 }
 
@@ -69,9 +69,6 @@ if (isset($_POST["add_order"]) && !empty($_POST["product_qty"]) && !empty($_POST
                                                     <div class="image-show swiper-slide">
                                                         <a data-fslightbox href="<?= "../backend/imagesProducts/" . $data['name_url2']; ?>"><img src="<?= "../backend/imagesProducts/" . $data['name_url2']; ?>" alt=""></a>
                                                     </div>
-                                                    <div class="image-show swiper-slide">
-                                                        <a data-fslightbox href="<?= "../backend/imagesProducts/" . $data['name_url']; ?>"><img src="<?= "../backend/imagesProducts/" . $data['name_url']; ?>" alt=""></a>
-                                                    </div>
                                                 </div>
                                                 <div class="swiper-button-next"></div>
                                                 <div class="swiper-button-prev"></div>
@@ -86,9 +83,6 @@ if (isset($_POST["add_order"]) && !empty($_POST["product_qty"]) && !empty($_POST
                                                     </li>
                                                     <li class="thumbnail-show swiper-slide">
                                                         <img src="<?= "../backend/imagesProducts/" . $data['name_url2']; ?>" alt="">
-                                                    </li>
-                                                    <li class="thumbnail-show swiper-slide">
-                                                        <img src="<?= "../backend/imagesProducts/" . $data['name_url']; ?>" alt="">
                                                     </li>
                                                 </ul>
                                             </div>

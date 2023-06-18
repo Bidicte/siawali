@@ -2,7 +2,7 @@
 include("action/database.php");
 include("functions.php");
 $ip_address = getRealUserIp();
-$selectProduct = $bdd->query("SELECT * FROM cart2 WHERE ip_address='$ip_address'");
+$selectProduct = $bdd->query("SELECT * FROM cart WHERE ip_address='$ip_address'");
 $count = $selectProduct->rowCount();
 
 $total = 0;
