@@ -1,6 +1,7 @@
 <?php
 include("action/database.php");
 include("inclusion/header.php");
+
 $id = $_GET["product_id"];
 $selectProduct = $bdd->query("SELECT * FROM product WHERE active=1 and product_id='$id'");
 $data = $selectProduct->fetch();

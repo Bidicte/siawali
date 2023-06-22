@@ -1,6 +1,6 @@
 <?php
 include("action/add-cart.php");
-// include("authenticate.php");
+include("authenticate.php");
 include("inclusion/header.php");
 ?>
 

@@ -4,7 +4,7 @@ include("authenticate.php");
 include("inclusion/header.php");
 
 
-$selectOrder = $bdd->query("SELECT * FROM cart2");
+$selectOrder = $bdd->query("SELECT * FROM cart");
 $order = $selectOrder->fetch();
 
 $total = 0;
@@ -111,7 +111,7 @@ while ($order = $selectOrder->fetch()) {
                                             <span style="margin-right:150px">Prix total: </span>
                                             <strong><?= $total . ".000Fcfa"; ?></strong>
                                             <div class="primary-checkout"> <br> <br>
-                                                <button type="submit" class="primary-button order" name="order"><a href="order.php?customer_id<?= $_SESSION['customer_id'] ?>">Valider ma commande </a></button>
+                                                <button type="submit" class="primary-button order" name="order"><a href="order.php?customer_id=<?= $_SESSION['customer_id'] ?>">Valider ma commande </a></button>
                                         </form>
                                     </div>
                                 </div>

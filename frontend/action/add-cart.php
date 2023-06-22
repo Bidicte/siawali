@@ -1,8 +1,6 @@
 <?php
 session_start();
-include("database.php");
-// include("functions.php");
-// $ip_address = getRealUserIp();
+require("action/database.php");
 
 
 $query = $bdd->query("SELECT c.cart_id as cid, c.product_id, c.product_quantity, c.product_size, p.product_id as pid, p.product_title, p.name_url, p.product_price 
