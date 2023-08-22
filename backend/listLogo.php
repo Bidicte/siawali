@@ -8,7 +8,7 @@ include('includes/navbarSearch.php');
 
 
 <div class="container-fluid">
-<h3>Modifier un slider</h3>
+<h3>Modifier le logo</h3>
 <div class="card-body card shadow mb-4">
     <div class="table-responsive">
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

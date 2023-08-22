@@ -1,3 +1,9 @@
+<?php
+include("action/database.php");
+$selectLogo = $bdd->query("SELECT * FROM logo");
+$logo = $selectLogo->fetch();
+?>
+
 <div class="widgets">
                 <div class="container">
                     <div class="wrapper">
@@ -17,7 +23,6 @@
                                     <ul class="flexcol">
                                         <li><a href="#">Comment commander?</a></li>
                                         <li><a href="#">Livraisons</a></li>
-                                        <li><a href="#">Robes</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -25,7 +30,8 @@
                                 <div class="item mini-links">
                                     <h4>Moyen de paiement</h4>
                                     <ul class="flexcol">
-                                        <li><a href="#">Cash</a></li>
+                                        <li><a href="#">Payer à la livraison</a></li>
+                                        <li><a href="#">Payer par mobile money</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -51,7 +57,7 @@
                     <div class="wrapper">
                         <div class="flexcol">
                             <div class="logo">
-                                <a href="#"><span class="circle"></span>.Siawali</a>
+                                <a href="#"><span class="circle"></span>.<?= $logo['logo_name']?></a>
                             </div>
                             <div class="socials">
                                 <ul class="flexitem">

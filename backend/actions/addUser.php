@@ -1,9 +1,9 @@
 <?php
 session_start();
-include ('database.php');
+include('database.php');
 
 if(isset($_POST['signup'])){
-    if(!empty($_POST['user_lastname']) && !empty($_POST['user_firstname']) && !empty($_POST['user_phone']) && !empty($_POST['user_email']) &&!empty($_POST['user_address']) && !empty($_POST['user_login']) &&!empty($_POST['user_password']) && !empty($_FILES)){
+    if(!empty($_POST['user_lastname']) && !empty($_POST['user_firstname']) && !empty($_POST['user_phone']) && !empty($_POST['user_email']) &&!empty($_POST['user_address']) && !empty($_POST['user_login']) &&!empty($_POST['user_password']) && !empty($_FILES['name_url'])){
         $firstname = htmlspecialchars($_POST['user_lastname']);
         $lastname = htmlspecialchars($_POST['user_firstname']);
         $phone = htmlspecialchars($_POST['user_phone']);
@@ -21,7 +21,6 @@ if(isset($_POST['signup'])){
         $extensions = array(".pdf",".PDF",".jpg",".JPG",".png",".PNG");
 
         $file_destination = 'images/'.$file_name;
-
 
         
         $checkIfUsersAreRegistered = $bdd->prepare('SELECT user_login, user_email, user_password FROM users WHERE user_email=?');
@@ -46,8 +45,8 @@ if(isset($_POST['signup'])){
                             $datas = $getInfosOfthisUsers->fetch();
                 
                             $_SESSION['auth'] = true;
-                            $_SESSION['user_id'] = $datas['user_id'];
-                            $_SESSION['user_email'] = $datas['user_email'];
+                            // $_SESSION['user_id'] = $datas['user_id'];
+                            // $_SESSION['user_email'] = $datas['user_email'];
                             
                             $_SESSION['message'] = "L'utilisateur ajouté avec succès";
                         }

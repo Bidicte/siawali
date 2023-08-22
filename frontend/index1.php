@@ -1,5 +1,8 @@
 <?php
-include("action/database.php");
+session_start();
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = [];
+}
 include("inclusion/header.php");
 ?>
 <body>
@@ -80,7 +83,7 @@ include("inclusion/header.php");
                                             </div>
                                             <div class="footer">
                                                 <div class="thirty-button">
-                                                    <a href="product-detail1.php?product_id=<?= $data['product_id'];?>">Ajouter au panier</a>
+                                                    <a href="product-detail.php?product_id=<?= $data['product_id'];?>">Ajouter au panier</a>
                                                 </div>
                                             </div>
                                         </div>

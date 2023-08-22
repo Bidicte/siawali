@@ -1,6 +1,7 @@
 <?php
 include("action/add-cart.php");
 include("inclusion/header.php");
+
 ?>
 
 <body>
@@ -42,13 +43,13 @@ include("inclusion/header.php");
                         
                         <div class="products one cart">
                             <div class="flexwrap">
-                                <form action="" class="" id="myCart">
-                                    <div class="item left">
+                                <form action="" class="form-cart" id="myCart">
+                                    <div class="item ">
                                         <table class="cart-table" id="cart-table">
                                             <thead>
                                                 <tr>
                                                     <th>Image</th>
-                                                    <th>Prix Unitaire</th>
+                                                    <th>Prix</th>
                                                     <th>Quantité</th>
                                                     <th>Sous-total</th>
                                                     <th>Action</th>
@@ -57,9 +58,7 @@ include("inclusion/header.php");
                                             <tbody class="cart-items">
                                                 <?php
                                                     $total = 0;
-                                                    $subtotal = 0;
                                                     $items= $query->fetchAll();
-                                                    $count = $query->rowcount();
                                                     foreach($items as $item) {
                                                 ?>
                                                     <tr class="cart-row">
@@ -70,14 +69,12 @@ include("inclusion/header.php");
                                                                 </a>
                                                             </div>
                                                             <div class="content">
-                                                                <p></p>
+                                                                <strong><a href="#"><?=$item['product_title']?></a></strong>
                                                             </div>
                                                         </td>
-                                                        <td class="cart-price"><?= $item['product_price']?>.000 Fcfa</td>
+                                                        <td class="cart-price"><?= $item['product_price']?></td>
                                                         <td class="product-data">
                                                             <input type="hidden" class="productId" value="<?= $item['product_id']?>">
-                                                            <input type="hidden" class="productId" value="<?= $item['product_size']?>">
-                                                            <input type="hidden" class="productId" value="<?= $item['product_price']?>">
                                                             <div class="qty-control flexitem">
                                                                 <button class="minus updateQty">-</button>
                                                                 <input type="text" class="num" value="<?= $item['product_quantity']?>">
@@ -87,7 +84,7 @@ include("inclusion/header.php");
                                                         <td class="product-data">
                                                            <div class="updateSubTotal">
                                                                 <?php 
-                                                                echo $subtotal = $item['product_price'] * $item['product_quantity'].".000 Fcfa";
+                                                                echo $total = $item['product_price'] * $item['product_quantity'];
                                                                 ?>
                                                            </div>
                                                         </td>
@@ -101,29 +98,64 @@ include("inclusion/header.php");
                                                     
                                                 <tr class="cart-total">
                                                     <th>Total</th>
-                                                    <td class="cart-total-price">
-                                                    <?php 
-                                                        $selectProduct = $bdd->query("SELECT * FROM cart2 WHERE ip_address='$ip_address'");
-                                                        $total = 0;
-                                                        while($data2 = $selectProduct->fetch()){
-                                                            $subtotal =  (int)$data2['product_quantity'] * (int)$data2['product_price'];
-                                                            $total += $subtotal;
-                                                        }
-                                                        ?>
-                                                        <h1><?= $total.".000Fcfa"?></h1>
-                                                    </td>
-                                                    <td>
-                                                        <button type="submit" value="<?= $item['cid']?>" class="deleteAll checkout1 secondary-button">Vider le panier</button>
-                                                    </td>
+                                                    <td class="cart-total-price">XAF</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                    <div class="checkout1">
-                                        <a class="primary-button" href="checkout.php">Procéder au paiement</a>
-                                    </div>
-                                    
                                 </form>
+                                <div class="cart-summary styled">
+                                    <div class="item">
+                                        <div class="coupon">
+                                            <input type="text" placeholder="Enter coupon code">
+                                            <button>Appliquer</button>
+                                        </div>
+                                        <div class="shipping-rate collapse">
+                                            <div class="has-child expand">
+                                                <div class="content">
+                                                    <!-- <div class="countries">
+                                                        <form action="">
+                                                            <label for="country">Pays</label>
+                                                            <select name="country" id="country">
+                                                                <option value=""></option>
+                                                                <option value="1" selected="selected">Centrafrique
+                                                                </option>
+                                                                <option value="2">Cameroun</option>
+                                                                <option value="3">Congo</option>
+                                                                <option value="4">Cote d'Ivoire</option>
+                                                                <option value="5">Cap-Vert</option>
+                                                            </select>
+                                                        </form>
+                                                    </div>
+                                                    <div class="states">
+                                                        <form action="">
+                                                            <label for="state">State/Province</label>
+                                                            <select name="state" id="state">
+                                                                <option value="">Selectionner la ville</option>
+                                                                <option value="1" selected="selected">Bangui</option>
+                                                                <option value="2">Douala</option>
+                                                                <option value="3">Bangui</option>
+                                                                <option value="4">Abidjan</option>
+                                                                <option value="5">Bangui</option>
+                                                            </select>
+                                                        </form>
+                                                    </div> -->
+                                                    <br>
+                                                    <div class="postal-code">
+                                                        <form action="">
+                                                            <label for="postal">Code Postal</label>
+                                                            <input type="number" name="postal" id="postal">
+                                                        </form>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="cart-total">
+                                            <a href="/checkout" class="secondary-button">Valider</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -137,12 +169,11 @@ include("inclusion/header.php");
             
 
             <?php include("inclusion/footer-info.php");?>
-            <?php include("inclusion/footer.php");?>
 
+            <?php include("inclusion/footer.php");?>
             <!-- Jquery cdn -->
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-            <!-- Alertify js -->
-            <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>                                                    
+
             <script>
     // increment
         $(document).ready(function () {
@@ -208,28 +239,6 @@ include("inclusion/header.php");
                     success: function (response) {
                         if (response == 200) {
                             alertify.success("Le produit est supprimé");
-                            $('#myCart').load(location.href + "#myCart");
-                        }else{
-                            alertify.success(response);
-                        }
-                    }
-                });
-            });
-            
-            $(document).on('click', '.deleteAll',function(){
-                var cart_id = $(this).val();
-                // alert(cart_id);
-
-                $.ajax({
-                    method: "POST",
-                    url: "handlecart.php",
-                    data: {
-                        "cart_id": cart_id,
-                        "scope": "deleteAll"
-                    },
-                    success: function (response) {
-                        if (response == 200) {
-                            alertify.success("Les produits ont été supprimé");
                             $('#myCart').load(location.href + "#myCart");
                         }else{
                             alertify.success(response);

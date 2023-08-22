@@ -4,7 +4,7 @@ $id = $_GET['user_id'];
 
 if (isset($_POST['add_slider']))
 {
-    if(!empty($_POST['title']) && !empty($_POST['sous_titre']) && !empty($_POST['description']) && !empty($_FILES['name_url']) && !empty($_FILES['name_url1']) && !empty($_FILES['name_url2']))
+    if(!empty($_POST['title']) && !empty($_POST['sous_titre']) && !empty($_POST['description']) && !empty($_FILES['name_url']))
     {
         $title = htmlspecialchars($_POST['title']);
         $sous_titre = htmlspecialchars($_POST['sous_titre']);
@@ -29,7 +29,7 @@ if (isset($_POST['add_slider']))
 
                 if(in_array($file_extension, $extensions))
                 { 
-                    if(move_uploaded_file($tmp_name, $file_destination) && move_uploaded_file($tmp_name1, $file_destination1) && move_uploaded_file($tmp_name2, $file_destination2))
+                    if(move_uploaded_file($tmp_name, $file_destination))
                     {
                             $insertProduct = $bdd->prepare('INSERT INTO slider(slider_title, slider_sub_title, slider_description, name_url, user_id, active) VALUES(?,?,?,?,?,true)');
                             $insertProduct->execute(array($title, $sous_titre, $description, $img_name,$id));

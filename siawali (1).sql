@@ -21,6 +21,22 @@ CREATE TABLE customer(
 
 
 -- -----------------------------------------------------
+-- Table customer_order
+-- -----------------------------------------------------
+CREATE TABLE customer_order(
+    order_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    customer_id INT(11) NOT NULL,
+    order_amount VARCHAR(150) NOT NULL,
+    order_quantity VARCHAR(150) NOT NULL,
+    order_date VARCHAR(150) NOT NULL,
+    order_commune VARCHAR(150) NOT NULL,
+    order_location VARCHAR(150) NOT NULL,
+    active boolean,
+    CONSTRAINT FK_custo FOREIGN KEY (customer_id) REFERENCES customer(customer_id)
+)ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table delivery
 -- -----------------------------------------------------
 CREATE TABLE delivery (
@@ -294,9 +310,10 @@ CREATE TABLE slider (
 -- -----------------------------------------------------
 CREATE TABLE logo (
   logo_id INT(11) PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  logo_name VARCHAR(2) NOT NULL,
+  logo_name VARCHAR(100) NOT NULL,
   logo_date_add DATE NOT NULL,
   user_id INT NOT NULL,
+  active boolean NOT NULL,
   CONSTRAINT FK_users_logo FOREIGN KEY (user_id) REFERENCES users(user_id)
 ) ENGINE = InnoDB;
 

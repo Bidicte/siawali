@@ -1,4 +1,8 @@
 <?php
+session_start();
+if(!isset($_SESSION['panier'])){
+    $_SESSION['panier'] = [];
+}
 include("action/database.php");
 include("inclusion/header.php");
 $id = $_GET["product_id"];
@@ -107,8 +111,8 @@ var_dump($_POST);
                                                     <span class="current" name="product_price"><?= $data['product_price']?>.000Fcfa</span>
                                                 </div>
                                                 <div class="sizes">
+                                                    <p>Taille</p>
                                                     <div class="button-cart">
-                                                        <p>Taille</p>
                                                         <select name="product_size" class="form-control" >
                                                             <option>Selectionner une Taille</option>
                                                             <option>XS</option>
@@ -120,23 +124,11 @@ var_dump($_POST);
                                                             <option>4XL</option>
                                                             <option>5XL</option>
                                                         </select> <br><br>
-                                                        <p>Quantité</p>
-                                                        <select name="product_qty" class="form-control" >
-                                                            <option>Selectionner une quantité</option>
-                                                            <option>1</option>
-                                                            <option>2</option>
-                                                            <option>3</option>
-                                                            <option>4</option>
-                                                            <option>5</option>
-                                                            <option>6</option>
-                                                            <option>7</option>
-                                                            <option>8</option>
-                                                            <option>9</option>
-                                                        </select>
+                                                        <input type="text" id="<?= $data['product_id']?>" value="1">
                                                     </div>
                                                 </div>
                                                 <div class="actions">
-                                                    <div class="button-cart"><button class="primary-button" name="add_order">Ajouter au Panier</button></div>
+                                                    <div class="button-cart"><button onclick="add(<?= $data['product_id']?>)" class="primary-button" name="add_order">Ajouter au Panier</button></div>
                                                 </div>
                                                 <div class="description collapse">
                                                     <ul>
@@ -284,3 +276,10 @@ var_dump($_POST);
             <?php include("inclusion/footer.php");?>
 
     <?php include("inclusion/script.php");?>
+    <script>
+        //panier
+function add(<?= $data['product_id']?>){
+    var qte = document.getElementById(<?= $data['product_id']?> ).value;
+    location.href = "add.php?<?= $data['product_id']?>="+<?= $data['product_id']?>+ "&gte=" qte;l
+}
+    </script>

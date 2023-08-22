@@ -6,23 +6,19 @@ if(!isset($_SESSION['user_id'])){
 include('includes/header.php');
 include('includes/navbar.php');
 include('includes/navbarSearch.php');
+var_dump($_POST);
 ?>
 
 
 <div class="container-fluid">
-
 <div class="row justify-content-center">
-
     <div class="col-xl-12 col-lg-12 col-md-9">
        <h3>Ajouter un utilisateur</h3>
-
         <div class="card o-hidden border-0 shadow my-5">
             <div class="card-body p-0">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="p-5">
-                            
-             
                             <form class="user" method="POST" enctype="multipart/form-data">
                                 <?php
                                     if(isset($message))
@@ -67,13 +63,10 @@ include('includes/navbarSearch.php');
                                     <input type="file" name="name_url" class="form-control">
                                 </div>
                                 <br>
-
                                 <button type="submit" class="btn btn-primary" name="signup">
-                                    Sign up
+                                    Enregistrer
                                 </button>
-                                
                             </form>
-                           
                         </div>
                     </div>
                 </div>

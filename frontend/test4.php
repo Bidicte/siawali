@@ -107,8 +107,8 @@ var_dump($_POST);
                                                     <span class="current" name="product_price"><?= $data['product_price']?>.000Fcfa</span>
                                                 </div>
                                                 <div class="sizes">
+                                                    <p>Taille</p>
                                                     <div class="button-cart">
-                                                        <p>Taille</p>
                                                         <select name="product_size" class="form-control" >
                                                             <option>Selectionner une Taille</option>
                                                             <option>XS</option>
@@ -120,7 +120,6 @@ var_dump($_POST);
                                                             <option>4XL</option>
                                                             <option>5XL</option>
                                                         </select> <br><br>
-                                                        <p>Quantité</p>
                                                         <select name="product_qty" class="form-control" >
                                                             <option>Selectionner une quantité</option>
                                                             <option>1</option>

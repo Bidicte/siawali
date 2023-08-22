@@ -18,8 +18,6 @@ if(isset($_SESSION['auth'])){
         $dataLogo = $selectLogo->fetch();
 
         $_SESSION['auth'] = true;
-        $_SESSION['logo_id'] = $dataLogo['logo_id'];
-        $_SESSION['logo_name'] = $dataLogo['logo_name'];
         $_SESSION['message'] = "Logo ajouté avec success";
     }
 }
